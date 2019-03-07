@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="Student_management_action" model="ir.actions.act_window">
+        <field name="name">Etudiant</field>
+        <field name="res_model">ga.student</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html"> <p class="oe_view_nocontent_create"> Cliquez ici pour créer Un Etudiant.</p></field>
+    </record>
+
+    <record id="Student_management_form_view" model="ir.ui.view">
+    <field name="name">Etudiant.form</field>
+    <field name="model">ga.student</field>
+    <field name="arch" type= "xml" >
+      <form>
+        <sheet>
+          <group>
+            <field name="matricule"/>
+            <field name="nom"/>
+            <field name="prenom"/>
+            <field name="statut"/>
+          </group>
+          <group>
+            <field name="module_id" >
+                  <tree editable="bottom">
+                    <field name="titre"/>
+                    <field name="note_absence"/>
+                  </tree>
+            </field>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  
+
+    <menuitem id="gesion_assiduite_menu" name="Gestion Assiduite" />
+    
+    <menuitem id="Humain_menu" name="Humain" parent="gesion_assiduite_menu" />
+    <menuitem id="Student_menu" name="Etudiant" 
+            parent="Humain_menu" action="Student_management_action"/>
+    
+    
+</odoo>

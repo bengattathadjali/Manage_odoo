@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!-- Module -->
+    <record id="module_management_action" model="ir.actions.act_window">
+        <field name="name">Module</field>
+        <field name="res_model">ga.module</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html"> <p class="oe_view_nocontent_create"> Cliquez ici pour créer Un Module.</p></field>
+    </record>
+
+    <record id="module_management_form_view" model="ir.ui.view">
+        <field name="name">Module.form</field>
+        <field name="model">ga.module</field>
+        <field name="arch" type= "xml" >
+        <form>
+            <sheet>
+            <group>
+                <field name="titre"/>
+                <field name="note_absence"/>
+                <field name="description"/>
+                
+            </group>
+            </sheet>
+        </form>
+        </field>
+    </record>
+    <!-- Promo -->
+    <record id="promo_management_action" model="ir.actions.act_window">
+            <field name="name">Promo</field>
+            <field name="res_model">ga.promo</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html"> <p class="oe_view_nocontent_create"> Cliquez ici pour créer Une Promo.</p></field>
+        </record>
+    <record id="promo_management_form_view" model="ir.ui.view">
+        <field name="name">Promo.form</field>
+        <field name="model">ga.promo</field>
+        <field name="arch" type= "xml" >
+        <form>
+            <sheet>
+            <group>
+                <field name="nom"/>
+                <field name="cycle_promo"/>
+                <field name="description_promo"/>
+            </group>
+            </sheet>
+        </form>
+        </field>
+    </record>
+    <!-- Groupe -->
+    <record id="groupe_management_action" model="ir.actions.act_window">
+            <field name="name">Groupe</field>
+            <field name="res_model">ga.groupe</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html"> <p class="oe_view_nocontent_create"> Cliquez ici pour Déviser la promo en groupe.</p></field>
+        </record>
+    <record id="groupe_management_form_view" model="ir.ui.view">
+        <field name="name">Groupe.form</field>
+        <field name="model">ga.groupe</field>
+        <field name="arch" type= "xml" >
+        <form>
+            <sheet>
+            <group>
+                <field name="promo_id"/>
+                <field name="nbr_groupe"/>
+                <field name="nbr_etu_gr"/>
+                <field name="nombre_total"/>
+                <field name="description"/>
+            </group>
+            </sheet>
+        </form>
+        </field>
+    </record>
+    <!-- Menu -->
+    <menuitem id="Managment_menu" name="Management" parent="gesion_assiduite_menu" />
+    <menuitem id="module_menu" name="Module" 
+                parent="Managment_menu" action="module_management_action"/>
+    <menuitem id="Promo_menu" name="Promo" 
+                parent="Managment_menu" action="promo_management_action"/>   
+    <menuitem id="Groupe_menu" name="Groupe" 
+                parent="Managment_menu" action="groupe_management_action"/>     
+</odoo>
